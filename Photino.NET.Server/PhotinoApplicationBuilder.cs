@@ -37,13 +37,13 @@ public static class PhotinoApplicationBuilder
     {
         var builder = WebApplication.CreateBuilder(options);
 
-        builder.Services.AddSingleton<PhotinoWindow>();
+        builder.Services.AddSingleton(new PhotinoWindow());
         builder.Services.AddSingleton<PhotinoDevelopmentServer>();
         builder.Services.Configure<PhotinoDevelopmentServerOptions>(options =>
         {
             options.IndexFile = "index.html";
             options.StartCommand = "npm run dev";
-            options.UserInterfacePath = "UserInterface";
+            options.UserInterfacePath = "Interface";
             options.WaitUntilReadyTimeout = TimeSpan.FromSeconds(10);
         });
 
